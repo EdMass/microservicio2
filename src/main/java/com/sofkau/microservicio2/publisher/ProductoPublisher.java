@@ -14,7 +14,7 @@ public class ProductoPublisher {
 
 
     @PostMapping("/")
-    public String bookOrder(@RequestBody Producto producto) {
+    public String allProductos(@RequestBody Producto producto) {
 
         //OrderStatus orderStatus = new OrderStatus(order, "PROCESS", "order placed succesfully in " + restaurantName);
         rabbitTemplate.convertAndSend(MessagingConfig.EXCHANGE, MessagingConfig.ROUTING_KEY, producto);
